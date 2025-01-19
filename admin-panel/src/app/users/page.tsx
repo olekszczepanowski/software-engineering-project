@@ -8,7 +8,7 @@ export interface User {
   email: string;
   phoneNumber: string;
   password: string;
-  dateOfBirth: string;
+  birthDate: string;
   joinDate: string;
   distanceTraveled: number;
 }

@@ -36,7 +36,7 @@ export default class UsersController {
    * Handle form submission for the edit action
    */
   async update({ params, request }: HttpContext) {
-    const payload = await request.validateUsing(createUserValidator)
+    const payload = await request.validateUsing(updateUserValidator)
     const userId = params.id
     const currentUser = await User.findOrFail(userId)
     currentUser.merge(payload)

@@ -15,19 +15,22 @@ async function getUserData(slug: string): Promise<User> {
   return user;
 }
 export default async function Page({ params }: { params: { slug: string } }) {
-  const user = await getUserData(params.slug);
+  const slug = params.slug;
+
+  const user = await getUserData(slug);
 
   return (
     <>
-      <h1 className="text-center text-2xl">Edytowanie użytkownika</h1>
+      <h1 className="text-center text-2xl mt-4">Edytowanie użytkownika</h1>
       <UserForm
         name={user.name}
         surname={user.surname}
         email={user.email}
         phoneNumber={user.phoneNumber}
-        birthDate={parseDate(user.dateOfBirth)}
+        birthDate={parseDate(user.birthDate)}
         joinDate={parseDate(user.joinDate)}
         slug={params.slug}
+        add={true}
       />
     </>
   );

@@ -11,7 +11,7 @@ export default class extends BaseSchema {
       table.string('email').notNullable()
       table.string('phone_number').notNullable()
       table.string('password').notNullable()
-      table.date('date_of_birth')
+      table.date('birth_date')
       table.date('join_date').defaultTo(this.now())
       table.double('distance_traveled').defaultTo(0)
       table.timestamps(true, true)

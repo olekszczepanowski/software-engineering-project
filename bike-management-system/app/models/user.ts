@@ -20,7 +20,7 @@ export default class User extends BaseModel {
   declare password: string
 
   @column.date()
-  declare dateOfBirth: DateTime
+  declare birthDate: DateTime
 
   @column.date()
   declare joinDate: DateTime

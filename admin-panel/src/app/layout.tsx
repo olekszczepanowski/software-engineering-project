@@ -17,9 +17,14 @@ export default function RootLayout({
       <body className="bg-zinc-100 tracking-tight">
         <div className="bg-zinc-400 h-12 flex items-center p-3 w-full justify-between">
           <div className="text-xl">Panel admina</div>
-          <Link href={`/`} className="font-semibold hover:underline">
-            Strona główna
-          </Link>
+          <div className="flex gap-2 items-center">
+            <Link href={`/`} className="font-semibold hover:underline">
+              Strona główna
+            </Link>
+            <Link href={`/users`} className="font-semibold hover:underline">
+              Użytkownicy
+            </Link>
+          </div>
         </div>
         {children}
       </body>
