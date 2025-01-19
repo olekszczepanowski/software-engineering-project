@@ -9,8 +9,5 @@
 
 import router from '@adonisjs/core/services/router'
 
-router.get('/', async () => {
-  return {
-    hello: 'world',
-  }
-})
+const UsersController = () => import('#controllers/users_controller')
+router.resource('users', UsersController)

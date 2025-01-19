@@ -1,5 +1,5 @@
 import User from '#models/user'
-import { createUserValidator } from '#validators/user'
+import { createUserValidator, updateUserValidator } from '#validators/user'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class UsersController {
@@ -27,7 +27,7 @@ export default class UsersController {
    * Show individual record
    */
   async show({ params }: HttpContext) {
-    const userId = params.userId
+    const userId = params.id
 
     return await User.findOrFail(userId)
   }
@@ -37,9 +37,10 @@ export default class UsersController {
    */
   async update({ params, request }: HttpContext) {
     const payload = await request.validateUsing(createUserValidator)
-    const userId = params.userId
+    const userId = params.id
     const currentUser = await User.findOrFail(userId)
     currentUser.merge(payload)
+    await currentUser.save()
     return {
       message: 'User updated successfully.',
       user: userId,
