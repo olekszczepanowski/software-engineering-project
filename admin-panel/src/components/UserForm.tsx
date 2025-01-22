@@ -43,18 +43,23 @@ export function UserForm({
   slug,
   add,
 }: {
-  name: string;
-  surname: string;
-  email: string;
-  phoneNumber: string;
-  birthDate: Date;
-  joinDate: Date;
-  slug: string;
+  name?: string;
+  surname?: string;
+  email?: string;
+  phoneNumber?: string;
+  birthDate?: Date;
+  joinDate?: Date;
+  slug?: string;
   add: boolean;
 }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      name: name || "",
+      surname: surname || "",
+      email: email || "",
+      phoneNumber: phoneNumber || "",
+      password: "",
       birthDate: birthDate,
       joinDate: joinDate,
     },

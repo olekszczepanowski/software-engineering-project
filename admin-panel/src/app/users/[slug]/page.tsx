@@ -1,15 +1,18 @@
 import { UserForm } from "@/components/UserForm";
 import { User } from "../page";
 import { parse } from "date-fns";
-const parseDate = (date: string) => {
+export const parseDate = (date: string) => {
   const dateFormat = "yyyy-MM-dd";
-
   const parsedDate = parse(date, dateFormat, new Date());
+
+  if (isNaN(parsedDate.getTime())) {
+    return new Date();
+  }
 
   return parsedDate;
 };
 
-async function getUserData(slug: string): Promise<User> {
+export async function getUserData(slug: string): Promise<User> {
   const data = await fetch(`http://localhost:3333/users/${slug}`);
   const user = await data.json();
   return user;
