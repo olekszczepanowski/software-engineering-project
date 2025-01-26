@@ -21,7 +21,11 @@ export default function RootLayout({
             <Link href={`/`} className="font-semibold hover:underline">
               Strona główna
             </Link>
-            <Link href={`/users`} className="font-semibold hover:underline">
+            <Link
+              href={`/users`}
+              className="font-semibold hover:underline"
+              data-testid="main-users-link"
+            >
               Użytkownicy
             </Link>
           </div>
