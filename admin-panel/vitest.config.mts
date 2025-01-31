@@ -5,6 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   test: {
+    include: ["**/__tests__/**/*.test.{js,ts,jsx,tsx}"],
     environment: "jsdom",
   },
 });

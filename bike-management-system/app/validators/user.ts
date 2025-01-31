@@ -17,7 +17,7 @@ export const updateUserValidator = vine.compile(
     name: vine.string(),
     surname: vine.string(),
     email: vine.string(),
-    joinDate: vine.date().transform((date) => DateTime.fromJSDate(date)),
-    birthDate: vine.date().transform((date) => DateTime.fromJSDate(date)),
+    // joinDate: vine.date().transform((date) => DateTime.fromJSDate(date)),
+    // birthDate: vine.date().transform((date) => DateTime.fromJSDate(date)),
   })
 )

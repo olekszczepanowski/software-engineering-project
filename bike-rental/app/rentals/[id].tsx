@@ -47,7 +47,7 @@ export default function RentalDetails() {
     async function fetchBikeData() {
       try {
         const response = await fetch(
-          `https://e309-5-173-235-14.ngrok-free.app/bikes/${id}`
+          `https://de90-5-173-241-28.ngrok-free.app/bikes/${id}`
         );
         const data = await response.json();
         setBike(data);
@@ -68,7 +68,7 @@ export default function RentalDetails() {
 
     try {
       const response = await fetch(
-        "https://e309-5-173-235-14.ngrok-free.app/rentals",
+        "https://de90-5-173-241-28.ngrok-free.app/rentals",
         {
           method: "POST",
           headers: {

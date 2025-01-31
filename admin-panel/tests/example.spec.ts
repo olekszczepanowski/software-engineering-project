@@ -7,7 +7,6 @@ test("should navigate to the users page", async ({ page }) => {
 
   await mainUsersLink.click();
 
-  // Sprawdź, czy URL zmienił się na /users
   await expect(page).toHaveURL("http://localhost:3000/users");
 });
 

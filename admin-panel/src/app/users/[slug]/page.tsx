@@ -18,9 +18,7 @@ export async function getUserData(slug: string): Promise<User> {
   return user;
 }
 export default async function Page({ params }: { params: { slug: string } }) {
-  const slug = params.slug;
-
-  const user = await getUserData(slug);
+  const user = await getUserData(params.slug);
 
   return (
     <>

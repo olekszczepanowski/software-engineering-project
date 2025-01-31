@@ -30,7 +30,7 @@ const formSchema = z.object({
   phoneNumber: z.string().min(9).max(9),
   birthDate: z.date(),
   joinDate: z.date(),
-  password: z.string().min(6).optional(),
+  password: z.string().optional(),
 });
 
 export function UserForm({
@@ -43,13 +43,13 @@ export function UserForm({
   slug,
   add,
 }: {
-  name?: string;
-  surname?: string;
-  email?: string;
-  phoneNumber?: string;
-  birthDate?: Date;
-  joinDate?: Date;
-  slug?: string;
+  name: string;
+  surname: string;
+  email: string;
+  phoneNumber: string;
+  birthDate: Date;
+  joinDate: Date;
+  slug: string;
   add: boolean;
 }) {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -68,12 +68,16 @@ export function UserForm({
   const router = useRouter();
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!add) {
+      delete values.password;
+    }
     values.birthDate = format(
       values.birthDate,
       "yyyy-MM-dd"
     ) as unknown as Date;
 
     values.joinDate = format(values.joinDate, "yyyy-MM-dd") as unknown as Date;
+
     try {
       const response = await fetch(`http://localhost:3333/users/${slug}`, {
         method: "PATCH",
@@ -285,7 +289,8 @@ export function UserForm({
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+
+          <Button type="submit">Zatwierdź</Button>
         </form>
       </Form>
     </div>
